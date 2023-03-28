@@ -20,13 +20,13 @@ void merge(int left, int mid, int right){
 
 	int k = left;
 	int i = 0, j = 0;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            a[k++] = L[i++];
-        } else {
-            a[k++] = R[j++];
-        };
-    }
+    	while (i < n1 && j < n2) {
+		if (L[i] <= R[j]) {
+		    a[k++] = L[i++];
+		} else {
+		    a[k++] = R[j++];
+		};
+    	}
 
 	while (i < n1) a[k++] = L[i++];
 	while (j < n2) a[k++] = R[j++];
