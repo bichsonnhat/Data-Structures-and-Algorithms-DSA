@@ -94,9 +94,9 @@ int main(){
 		addTail = 1 -> 2 -> 3 -> 4 -> 5 -> NULL;
     */
 
-   	int val; cin >> val;
-   	Node* q = getNode(val);
-   	insertAfter(L, L.pHead -> nextNode -> nextNode, q);
+    int val; cin >> val;
+    Node* q = getNode(val);
+    insertAfter(L, L.pHead -> nextNode -> nextNode, q);
     printfLinkedList(L);    
    	/*
 		For example : val = 8
