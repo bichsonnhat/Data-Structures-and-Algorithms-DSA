@@ -71,11 +71,11 @@ class BST{
             // NodeLeaf or have one childNode
             if (T -> pLeft == nullptr || T -> pRight == nullptr) {
                 curNode = T;
-                T = (T -> pLeft != nullptr) ? T->pLeft : T -> pRight;
+                T = (T -> pLeft != nullptr) ? T -> pLeft : T -> pRight;
                 delete curNode;
             } else { // Node have two childNode
                 curNode = findMin(T -> pRight); // or curNode = findMax(T->pLeft);
-                T -> key = curNode->key;
+                T -> key = curNode -> key;
                 T -> pRight = deleteNode(T -> pRight, T -> key);
             }
         }
