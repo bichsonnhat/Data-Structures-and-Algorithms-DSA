@@ -8,7 +8,7 @@ class BST{
     };
 
     typedef Node* TREE;
-
+    
     Node* root;
 
     Node* getNode(int value){
@@ -71,11 +71,11 @@ class BST{
             // NodeLeaf or have one childNode
             if (T -> pLeft == nullptr || T -> pRight == nullptr) {
                 curNode = T;
-                T = (T -> pLeft != nullptr) ? T -> pLeft : T -> pRight;
+                T = (T -> pLeft != nullptr) ? T->pLeft : T -> pRight;
                 delete curNode;
             } else { // Node have two childNode
                 curNode = findMin(T -> pRight); // or curNode = findMax(T->pLeft);
-                T -> key = curNode -> key;
+                T -> key = curNode->key;
                 T -> pRight = deleteNode(T -> pRight, T -> key);
             }
         }
@@ -99,6 +99,14 @@ class BST{
         travelTree(T -> pRight);
     }
 
+    int highOfTree(Node* T){
+        if (T == nullptr){
+            return 0;
+        }
+
+        return max(highOfTree(T -> pLeft), highOfTree(T -> pRight)) + 1;
+    }
+
     public:
         BST(){
             root = nullptr;
@@ -120,9 +128,12 @@ class BST{
             travelTree(root);
         }
 
+        int findHigh(){
+            return highOfTree(root);
+        }
 };
 
-int main(){
+int main(){ 
     BST Tree;
     int numberNodes; cin >> numberNodes;
     for (int i = 0; i < numberNodes; ++i){
@@ -133,6 +144,7 @@ int main(){
     Tree.displayTree(); cout << endl;
     int nodeDel; cin >> nodeDel;
     Tree.remove(nodeDel);
-    Tree.displayTree();
+    Tree.displayTree(); 
+    cout << Tree.findHigh() << endl;
     return 0;
 }
