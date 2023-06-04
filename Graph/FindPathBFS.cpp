@@ -4,10 +4,6 @@ using namespace std;
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
-    #ifndef ONLINE_JUDGE
-        freopen("TRAINING.INP","r",stdin);
-        freopen("TRAINING.OUT","w",stdout);
-    #endif
     int n, m;
     cin >> n >> m;
     vector <int> adj[n];
